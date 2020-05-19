@@ -24,7 +24,7 @@ def setwallpaper(filepath, plugin = 'org.kde.image'):
     plasma.evaluateScript(jscript % (plugin, plugin, filepath))
 
 
-#choose a random int
+#choose an arbitrary random int
 rand = math.floor(random.uniform(0,150))
 
 #the number of the reddit page
@@ -43,6 +43,6 @@ for i in range(page+1):
 link = js["data"]["children"][x]["data"]["url"]
 
 #delete old wallpaper and download a new one
-os.system("cd ~/Desktop/scripts ; rm -f *.jpg *.jpeg *.png ; wget -c %s" % link)
+os.system("mkdir ~/wallpaper ; cd ~/wallpaper ; rm -f *.jpg *.jpeg *.png ; wget -c %s" % link)
 
-setwallpaper("home/fedi/Desktop/scripts/%s" % link[link.rfind("/")+1:])
+setwallpaper("~/wallpaper/%s" % link[link.rfind("/")+1:])
